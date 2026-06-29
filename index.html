@@ -28,8 +28,12 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 @keyframes rise{0%{opacity:0;transform:translateY(0) scale(.5)}12%{opacity:1}100%{opacity:0;transform:translateY(-135px) scale(1.15)}}
 .scan{left:22%;top:36%;width:56%;height:2px;background:linear-gradient(90deg,transparent,#9beaff,transparent);mix-blend-mode:screen;filter:blur(1px);animation:scan 3.6s ease-in-out infinite}
 @keyframes scan{0%{top:36%;opacity:0}18%{opacity:.85}80%{opacity:.85}100%{top:57%;opacity:0}}
-.cta{position:absolute;left:9%;top:89.4%;width:82%;height:8.2%;display:block;border-radius:16px;animation:ctapulse 1.8s ease-in-out infinite;z-index:5}
-@keyframes ctapulse{0%,100%{box-shadow:0 0 16px 1px rgba(0,212,255,0)}50%{box-shadow:0 0 30px 7px rgba(0,212,255,.5),0 0 30px 7px rgba(255,45,120,.3)}}
+.cta{position:absolute;left:10%;top:89.5%;width:80%;height:8%;display:block;z-index:5;
+  -webkit-clip-path:polygon(6% 0,94% 0,100% 50%,94% 100%,6% 100%,0 50%);
+  clip-path:polygon(6% 0,94% 0,100% 50%,94% 100%,6% 100%,0 50%);
+  animation:ctaflash 1.8s ease-in-out infinite}
+/* 六角形閃光:幾乎不蓋底色(不弄髒按鈕),主要靠 drop-shadow 沿六角形向外發光 */
+@keyframes ctaflash{0%,100%{background:rgba(120,210,255,.02);filter:drop-shadow(0 0 3px rgba(0,212,255,.2))}50%{background:rgba(120,210,255,.06);filter:drop-shadow(0 0 20px rgba(0,212,255,.9)) drop-shadow(0 0 22px rgba(255,45,120,.55))}}
 </style>
 </head>
 <body>
